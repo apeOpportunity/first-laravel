@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/messages', function () {
-    return '<h1><a href="/">Mini Twitter</a></h1>';
+    return '<h1><a href="/messages">Mini Twitter</a></h1>';
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
