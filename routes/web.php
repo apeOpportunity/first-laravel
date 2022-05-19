@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::get('/messages', function () {
-    return '<h1><a href="/messages">Mini Twitter</a></h1>';
-});
+    return view('messages'); 
+    //return 'hello world';
+});*/
+ 
+Route::get('/messages', [MessageController::class, 'showAll']);
+
+Route::post('/create', [MessageController::class, 'create']);
+
+Route::get('/message/{id}', [MessageController::class, 'details']);
+
+Route::delete('/message/{id}', [MessageController::class, 'delete']);
 
 Auth::routes();
 
