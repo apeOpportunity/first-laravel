@@ -34,3 +34,7 @@ Route::delete('/message/{id}', [MessageController::class, 'delete']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

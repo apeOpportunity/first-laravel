@@ -11286,3 +11286,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-color: rgb(193, 247, 229);
+}

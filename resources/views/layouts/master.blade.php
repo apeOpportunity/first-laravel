@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- hier wird der Wert von der section "title" eines blade templates ausgefüllt, 
     welches dieses layout "extended" -->
-    <title>@yield('title')</title>
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">    
+    <!--<title>@yield('title')</title>-->
 </head>
 <body>
     <!-- hier wird auch der Wert von der section "title" eines blade templates ausgefüllt, 
