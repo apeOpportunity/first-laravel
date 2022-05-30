@@ -7,6 +7,7 @@
     <!-- hier wird der Wert von der section "title" eines blade templates ausgefüllt, 
     welches dieses layout "extended" -->
 
+    <!-- todo: do this -->
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
