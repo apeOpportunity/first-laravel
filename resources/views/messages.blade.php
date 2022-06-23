@@ -10,17 +10,20 @@
 ts value for section title to "Mini Twitter" (section content is used in messages.blade.php) -->
 @section('content')
 
+<img src="{{ asset('/img/birdy.png')}}">
 
-<h2>Create new message: </h2>
+@auth
+    <h2>Create new message: </h2>
 
-<form action="/create" method="post">
-    <input type="text" name="title" placeholder="Title">
-    <input type="text" name="content" placeholder="Content">
-    <!-- this blade directive is necessary for all form posts somewhere in between 
-        the form tags -->
-    @csrf
-    <button type="submit">Submit</button>
-</form>
+    <form action="/create" method="post">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="content" placeholder="Content">
+        <!-- this blade directive is necessary for all form posts somewhere in between 
+            the form tags -->
+        @csrf
+        <button type="submit">Submit</button>
+    </form>
+@endauth
 
 <h2>Recent messages:</h2>
 

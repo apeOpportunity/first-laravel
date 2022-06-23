@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,25 +16,37 @@ use App\Http\Controllers\MessageController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/messages');         
 });
+
 /*
 Route::get('/messages', function () {
     return view('messages'); 
     //return 'hello world';
 });*/
  
+// show all messages
 Route::get('/messages', [MessageController::class, 'showAll']);
 
-Route::post('/create', [MessageController::class, 'create']);
-
+// display message details
 Route::get('/message/{id}', [MessageController::class, 'details']);
 
-Route::delete('/message/{id}', [MessageController::class, 'delete']);
+// display edit messages view
+Route::get('/messageEdit/{id}', [MessageController::class, 'editView'])->middleware('auth');;
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/searchResult/{selectedType}', [MessageController::class, 'showSelection']);
+
+//protecting a single Route
+Route::delete('/message/{id}', [MessageController::class, 'delete'])->middleware('auth');
+
+Route::put('/message/{id}', [MessageController::class, 'update']);
+
+//protecting a group of Routes
+Route::middleware('auth')->group(function () {
+    Route::post('/create', [MessageController::class, 'create']);    
+    Route::post('comment', [CommentController::class, 'addComment']); 
+});
 
 Auth::routes();
 
