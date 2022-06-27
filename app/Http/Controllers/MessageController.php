@@ -113,5 +113,16 @@ class MessageController extends Controller
         // after that we redirect to the message list again   
         return redirect('/messages');         
     }        
+
+    function test() {
+        // redirect to Route dashboard for
+        // logged in users and to login Route for
+        // unauthorized users
+        if (Auth::user()){
+            return redirect('dashboard'); 
+        }else{
+            return redirect('login'); 
+        }        
+    }
     
 }
