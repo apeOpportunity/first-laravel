@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,12 @@ Route::get('/messages', function () {
     return view('messages'); 
     //return 'hello world';
 });*/
+
+// Route resource creates a number of routes to CRUD an object 
+// create, read, update, delete
+// in this case 'photos'
+// which use the PhotoController
+Route::resource('photos', PhotoController::class); 
  
 // show all messages
 Route::get('/messages', [MessageController::class, 'showAll']);
