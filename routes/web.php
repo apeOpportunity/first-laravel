@@ -31,6 +31,11 @@ Route::get('/messages', function () {
 // in this case 'photos'
 // which use the PhotoController
 Route::resource('photos', PhotoController::class); 
+/* Route::resources([
+    'photos' => PhotoController::class
+    'videos' => VideoController::class    
+]); 
+*/
  
 // show all messages
 Route::get('/messages', [MessageController::class, 'showAll']);
